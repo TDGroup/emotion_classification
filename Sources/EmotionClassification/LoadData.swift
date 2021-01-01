@@ -8,7 +8,7 @@
 import Foundation
 import Accelerate
 
-let sampling_rate = 512
+var sampling_rate = 512
 let number_of_channel = 1
 let number_of_audio = 20
 var number_of_second_per_audio = 30
@@ -25,6 +25,7 @@ let path = "/"
 public class Emotion
 {
     public var number_of_second = 30
+    public var sample_rate = 512
     /*
     Get data from csv and convert them to number array.
     Input: Path csv file.
@@ -32,6 +33,7 @@ public class Emotion
  */
     public init(){
         number_of_second_per_audio = self.number_of_second
+        sampling_rate = self.sample_rate
     }
 
     public func get_csv(path: String) -> [[Double]]
