@@ -31,7 +31,9 @@ public class Emotion
     Input: Path csv file.
     Output: Number array from csv data.
  */
-    public init(){
+    public init(number_of_second: Int, sample_rate: Int){
+        self.number_of_second = number_of_second
+        self.sample_rate = sample_rate
         number_of_second_per_audio = self.number_of_second
         sampling_rate = self.sample_rate
     }
@@ -310,7 +312,8 @@ public class Emotion
 
 public func emotion(_ input:[[Double]]) -> [Int]{
     var predict : [Int] = []
-    let e = Emotion()
+    let e = Emotion(number_of_second: 1, sample_rate: 100)
+    
 //    e.filter_raw_data(input_url: "chi_happy.csv", output_url: "train-chi-happy.csv")
 //    e.filter_raw_data(input_url: "chi_sad.csv", output_url: "train-chi-sad.csv")
 //    e.filter_raw_data(input_url: "truong_happy.csv", output_url: "train-truong-happy.csv")
